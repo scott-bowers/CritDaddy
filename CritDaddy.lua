@@ -10,9 +10,12 @@ local CritDaddy = AceAddon:NewAddon("CritDaddy", "AceConsole-3.0", "AceEvent-3.0
 -- Define the sounds directory and list of sound files
 local SOUND_DIR = "Interface\\AddOns\\CritDaddy\\sounds"
 local soundFiles = {
-    "kaiwow.wav",
-    "kaiwow2.wav",
-    "tiocca.wav",
+    "kaiwow0.wav",
+    "kaiwow1.wav",
+    "oohwhee.wav",
+    "potofgreed.mp3",
+    "theefiecook.mp3",
+    "tiocca0.wav",
     "tiocca1.wav",
     -- Add more sound files as needed
 }
