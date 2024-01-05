@@ -1,0 +1,8 @@
+## Interface: 80205
+## Title: CritDaddy
+## Version: 1.0
+## Author: tiocca
+
+embeds.xml
+
+CritDaddy.lua
