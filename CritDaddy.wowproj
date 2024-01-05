@@ -22,9 +22,11 @@
     </Content>
     <Content Include="README.md" />
     <Content Include="sounds\kaiwow.wav" />
-    <Content Include="sounds\kaiwow2.wav" />
-    <Content Include="sounds\tiocca.wav" />
-    <Content Include="sounds\tiocca1.wav" />
+    <Content Include="sounds\oohwhee.wav" />
+    <Content Include="sounds\potofgreed.mp3" />
+    <Content Include="sounds\theefiecook.mp3" />
+    <Content Include="sounds\tioccacrit.wav" />
+    <Content Include="sounds\tioccawow.wav" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Libs/LibStub/LibStub.lua">
