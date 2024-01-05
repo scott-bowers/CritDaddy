@@ -11,6 +11,9 @@ local CritDaddy = AceAddon:NewAddon("CritDaddy", "AceConsole-3.0", "AceEvent-3.0
 local SOUND_DIR = "Interface\\AddOns\\CritDaddy\\sounds"
 local soundFiles = {
     "kaiwow.wav",
+    "kaiwow2.wav",
+    "tiocca.wav",
+    "tiocca1.wav",
     -- Add more sound files as needed
 }
 
@@ -42,7 +45,7 @@ function CritDaddy:GetOptions()
                 type = "execute",
                 name = "Play Test Sound",
                 desc = "Play a test sound from the selected directory",
-                func = function() self:PlayRandomSound() end,
+                func = function() self:PlaySelectedSound() end,
             },
             debug = {
                 type = "toggle",
@@ -52,13 +55,31 @@ function CritDaddy:GetOptions()
                 set = function(_, value) self.db.profile.debug = value end,
                 width = "full",
             },
+            useRandomSound = {
+                type = "toggle",
+                name = "Use Random Sound",
+                desc = "Toggle between using a random sound or a specific sound",
+                get = function() return self.db.profile.useRandomSound end,
+                set = function(_, value) self.db.profile.useRandomSound = value end,
+            },
             soundSelection = {
                 type = "select",
-                name = "Select Sound",
+                name = "Selected Sound",
                 desc = "Select the sound to play on a critical hit",
-                get = function() return self.db.profile.selectedSound end,
-                set = function(_, value) self.db.profile.selectedSound = value end,
+                get = function()
+                    local selectedSound = self.db.profile.selectedSound
+                    for index, soundFile in ipairs(soundFiles) do
+                        if soundFile == selectedSound then
+                            return index
+                        end
+                    end
+                end,
+                set = function(_, index)
+                    self.db.profile.selectedSound = soundFiles[index]
+                    self:PrintDebug("Selected sound set to: " .. soundFiles[index])
+                end,
                 values = self:GetSoundFileOptions(),
+                style = "dropdown", 
             },
         },
     }
@@ -92,20 +113,24 @@ function CritDaddy:GetDefaultDB()
         profile = {
             debug = false,
             selectedSound = soundFiles[1], -- Default to the first sound file
+            useRandomSound = false, -- Default to using the specific sound
         },
     }
 end
 
+
 -- Function to play the selected sound from the dropdown menu
 function CritDaddy:PlaySelectedSound()
     local selectedSound = self.db.profile.selectedSound
-    if selectedSound then
-        -- Play the selected sound
-        PlaySoundFile(SOUND_DIR .. "\\" .. selectedSound, "Master")
+    if selectedSound and selectedSound ~= "" then
+        local soundPath = SOUND_DIR .. "\\" .. selectedSound
+        PlaySoundFile(soundPath, "Master")
     else
-        self:PrintDebug("No sound selected.")
+        self:Print("No specific sound selected.")
     end
 end
+
+
 
 -- Function to play a random sound from the selected sound directory
 function CritDaddy:PlayRandomSound()
@@ -144,20 +169,32 @@ function CritDaddy:COMBAT_LOG_EVENT_UNFILTERED()
     if eventType == "SWING_DAMAGE" then
         local amount, overkill, school, resisted, blocked, absorbed, critical = arg12, arg13, arg14, arg15, arg16, arg17, arg18
         if critical then
-            print("Critical Swing Damage: " .. amount)
-            CritDaddy:PlayRandomSound()
+            self:PrintDebug("Critical Swing Damage: " .. amount)
+            if self.db.profile.useRandomSound then
+                self:PlayRandomSound()
+            else
+                self:PlaySelectedSound()
+            end
         end
     elseif eventType == "SPELL_DAMAGE" or eventType == "RANGE_DAMAGE" or eventType == "SPELL_PERIODIC_DAMAGE" then
         local spellId, spellName, spellSchool, amount, overkill, school, resisted, blocked, absorbed, critical = arg12, arg13, arg14, arg15, arg16, arg17, arg18, arg19, arg20, arg21
         if critical then
             self:PrintDebug("Critical Spell/Range Damage: " .. spellName .. " for " .. amount)
-            CritDaddy:PlayRandomSound()
+            if self.db.profile.useRandomSound then
+                self:PlayRandomSound()
+            else
+                self:PlaySelectedSound()
+            end
         end
     elseif eventType == "SPELL_HEAL" then
         local spellId, spellName, spellSchool, amount, overhealing, absorbed, critical = arg12, arg13, arg14, arg15, arg16, arg17, arg18
         if critical then
             self:PrintDebug("Critical Heal: " .. spellName .. " for " .. amount)
-            CritDaddy:PlayRandomSound()
+            if self.db.profile.useRandomSound then
+                self:PlayRandomSound()
+            else
+                self:PlaySelectedSound()
+            end
         end
     end
 end
