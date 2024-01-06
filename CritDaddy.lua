@@ -26,6 +26,8 @@ CritDaddy.positiveSoundFiles = {
 
 CritDaddy.negativeSoundFiles = {
     "decilaff.ogg",
+    "debbyaightdude.ogg",
+    "debbywhaddyawanmetosaythen.ogg",
     -- Add more sound files as needed
 }
 
@@ -273,7 +275,7 @@ function CritDaddy:PlayRandomSound(type)
         soundPath = positiveSoundFiles[math.random(#positiveSoundFiles)]
     elseif type == "neg" then
         -- Select a random sound from negativeSounds
-        soundPath = negativeSoundFiles[math.random(#negativeSoundFiles)]
+        soundPath = self.negativeSoundFiles[math.random(#self.negativeSoundFiles)]
     end
 
 	if soundPath then
