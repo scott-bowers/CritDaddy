@@ -230,7 +230,7 @@ function CritDaddy:GetDefaultDB()
             useRandomMissSound = false,
             selectedMissSound = self.negativeSoundFiles[1], -- First negative sound as default
             useRandomResistSound = false,
-            selectedResistSound = self.negativeSoundFiles[1], -- First negative sound as default
+            selectedResistSound = self.negativeSoundFiles[2], -- First negative sound as default
         },
     }
 end
@@ -286,7 +286,7 @@ end
 -- Function to play sound based on user settings
 function CritDaddy:PlayCritSound()
     if self.db.profile.useRandomCritSound then
-        self:PlayRandomSound(pos)
+        self:PlayRandomSound("pos")
     else
         self:PlaySelectedCritSound()
     end
@@ -295,7 +295,7 @@ end
 -- Function to play sound based on user settings
 function CritDaddy:PlayMissSound()
     if self.db.profile.useRandomMissSound then
-        self:PlayRandomSound(neg)
+        self:PlayRandomSound("neg")
     else
         self:PlaySelectedMissSound()
     end
@@ -304,7 +304,7 @@ end
 -- Function to play sound based on user settings
 function CritDaddy:PlayResistSound()
     if self.db.profile.useRandomResistSound then
-        self:PlayRandomSound(neg)
+        self:PlayRandomSound("neg")
     else
         self:PlaySelectedResistSound()
     end
