@@ -11,6 +11,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="CritDaddy_Wrath.toc">
+      <SubType>TableOfContents</SubType>
+    </Content>
+    <Content Include="CritDaddy_Vanilla.toc">
+      <SubType>TableOfContents</SubType>
+    </Content>
     <Content Include="CritDaddy.toc">
       <SubType>TableOfContents</SubType>
     </Content>
@@ -21,6 +27,9 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="README.md" />
+    <Content Include="sounds\debbyaightdude.ogg" />
+    <Content Include="sounds\debbywhaddyawanmetosaythen.ogg" />
+    <Content Include="sounds\decilaff.ogg" />
     <Content Include="sounds\kaiwow.wav" />
     <Content Include="sounds\oohwhee.wav" />
     <Content Include="sounds\potofgreed.mp3" />
