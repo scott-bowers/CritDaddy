@@ -26,6 +26,8 @@ CritDaddy.positiveSoundFiles = {
 
 CritDaddy.negativeSoundFiles = {
     "decilaff.ogg",
+    "debbyaightdude.ogg",
+    "debbywhaddyawanmetosaythen.ogg",
     -- Add more sound files as needed
 }
 
@@ -228,7 +230,7 @@ function CritDaddy:GetDefaultDB()
             useRandomMissSound = false,
             selectedMissSound = self.negativeSoundFiles[1], -- First negative sound as default
             useRandomResistSound = false,
-            selectedResistSound = self.negativeSoundFiles[1], -- First negative sound as default
+            selectedResistSound = self.negativeSoundFiles[2], -- First negative sound as default
         },
     }
 end
@@ -267,19 +269,18 @@ end
 -- Play a random sound
 function CritDaddy:PlayRandomSound(type)
     local soundFile
-    self:PrintDebug("Random Sound...")
+
     if type == "pos" then
         -- Select a random sound from positiveSounds
         soundFile = self.positiveSoundFiles[math.random(#self.positiveSoundFiles)]
-        self:PrintDebug("Random Positive Sound: " .. soundFile)
     elseif type == "neg" then
         -- Select a random sound from negativeSounds
-        soundPath = self.negativeSoundFiles[math.random(#self.negativeSoundFiles)]
-        self:PrintDebug("Random Negative Sound: " .. soundFile)
+        soundFile = self.negativeSoundFiles[math.random(#self.negativeSoundFiles)]
     end
 
 	if soundFile then
         local soundPath = self.SOUND_DIR .. "\\" .. soundFile
+        self:PrintDebug("Random Sound file selected: " .. soundFile)
         PlaySoundFile(soundPath)
     end
 end
