@@ -1,4 +1,4 @@
-## Interface-Classic: 1150
+## Interface: 11500
 ## LoadOnDemand: 0
 ## Title: CritDaddy
 ## Version: 1.0
