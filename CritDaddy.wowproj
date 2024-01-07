@@ -11,12 +11,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
-    <Content Include="CritDaddy_Wrath.toc">
-      <SubType>TableOfContents</SubType>
-    </Content>
-    <Content Include="CritDaddy_Vanilla.toc">
-      <SubType>TableOfContents</SubType>
-    </Content>
     <Content Include="CritDaddy.toc">
       <SubType>TableOfContents</SubType>
     </Content>
