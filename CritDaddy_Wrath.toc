@@ -1,9 +1,0 @@
-## Interface-Classic: 100200
-## LoadOnDemand: 0
-## Title: CritDaddy
-## Version: 1.0
-## Author: tiocca
-
-embeds.xml
-
-CritDaddy.lua

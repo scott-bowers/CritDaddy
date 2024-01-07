@@ -33,9 +33,8 @@ CritDaddy.negativeSoundFiles = {
 
 -- Initialization function, called when the addon is loaded
 function CritDaddy:OnInitialize()
-    -- Create database with default settings
-    self.db = AceDB:New("CritDaddyDB", self:GetDefaultDB(), true)
-    -- TODO: Avoid overwriting options in the CritDaddyDB if CritDaddy has been launched previously.
+    -- Create database with default settings. AceDB handles checking for existing saved variables.
+    self.db = AceDB:New("CritDaddyDB", self:GetDefaultDB())
 
     -- Registering slash commands
     self:RegisterChatCommand("critdaddy", "SlashCommand")
@@ -48,6 +47,7 @@ function CritDaddy:OnInitialize()
     -- Registering event handler
     self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 end
+
 
 -- Function to define addon options using AceConfig
 function CritDaddy:GetOptions()
