@@ -35,6 +35,7 @@ CritDaddy.negativeSoundFiles = {
 function CritDaddy:OnInitialize()
     -- Create database with default settings
     self.db = AceDB:New("CritDaddyDB", self:GetDefaultDB(), true)
+    -- TODO: Avoid overwriting options in the CritDaddyDB if CritDaddy has been launched previously.
 
     -- Registering slash commands
     self:RegisterChatCommand("critdaddy", "SlashCommand")
