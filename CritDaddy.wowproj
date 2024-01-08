@@ -21,15 +21,30 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="README.md" />
+    <Content Include="sounds\apexheadshot.mp3" />
+    <Content Include="sounds\boomheadhsot.mp3" />
+    <Content Include="sounds\csgoheadshot.mp3" />
+    <Content Include="sounds\dahelliseventhat.ogg" />
     <Content Include="sounds\debbyaightdude.ogg" />
     <Content Include="sounds\debbywhaddyawanmetosaythen.ogg" />
     <Content Include="sounds\decilaff.ogg" />
+    <Content Include="sounds\eldenringcrit0.mp3" />
+    <Content Include="sounds\eldenringcrit1.mp3" />
+    <Content Include="sounds\headshot.mp3" />
     <Content Include="sounds\kaiwow.wav" />
     <Content Include="sounds\oohwhee.wav" />
     <Content Include="sounds\potofgreed.mp3" />
+    <Content Include="sounds\quakeheadshot.mp3" />
+    <Content Include="sounds\robloxoof.ogg" />
+    <Content Include="sounds\skibidi.ogg" />
+    <Content Include="sounds\tapin.ogg" />
+    <Content Include="sounds\tf2crit.mp3" />
     <Content Include="sounds\theefiecook.mp3" />
     <Content Include="sounds\tioccacrit.wav" />
     <Content Include="sounds\tioccawow.wav" />
+    <Content Include="sounds\trumpfired.mp3" />
+    <Content Include="sounds\trumpwhy.mp3" />
+    <Content Include="sounds\winducritical.ogg" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Libs/LibStub/LibStub.lua">

@@ -21,6 +21,16 @@ CritDaddy.positiveSoundFiles = {
     "theefiecook.mp3",
     "tioccawow.wav",
     "tioccacrit.wav",
+    "apexheadshot.mp3",
+    "boomheadhsot.mp3",
+    "csgoheadshot.mp3",
+    "eldenringcrit0.mp3",
+    "eldenringcrit1.mp3",
+    "headshot.mp3",
+    "quakeheadshot.mp3",
+    "tapin.ogg",
+    "tf2crit.mp3",
+    "winducritical.ogg",
     -- Add more sound files as needed
 }
 
@@ -28,6 +38,11 @@ CritDaddy.negativeSoundFiles = {
     "decilaff.ogg",
     "debbyaightdude.ogg",
     "debbywhaddyawanmetosaythen.ogg",
+    "dahelliseventhat.ogg",
+    "robloxoof.ogg",
+    "skibidi.ogg",
+    "trumpfired.mp3",
+    "trumpwhy.mp3",
     -- Add more sound files as needed
 }
 
