@@ -1,0 +1,11 @@
+## Interface: 100200
+## LoadOnDemand: 0
+## Title: CritDaddy
+## Version: 1.1.x
+## Author: tiocco
+## SavedVariables: CritDaddyDB
+## X-Curse-Project-ID: 958444
+
+embeds.xml
+
+CritDaddy.lua
